@@ -7,23 +7,42 @@ using System.Threading.Tasks;
 namespace Theme15Pr1
 {
     /// <summary>
-    /// Нестатический класс описывающий класс
+    /// Нестатический класс, описывающий школьников
     /// </summary>
     class MyClass
     {
         /// <summary>
-        /// Поле Ф.И.О школьника
+        /// Поле фамилии школьника
         /// </summary>
-        string name;
+        static string surname;
+        /// <summary>
+        /// Поле имени школьника
+        /// </summary>
+        static string name;
+        /// <summary>
+        /// Поле отчества школьника
+        /// </summary>
+        static string patronymic;
         /// <summary>
         /// Поле пола школьника
         /// </summary>
-        string gender;
+        static string gender;
         /// <summary>
         /// Поле года рождения школьника
         /// </summary>
-        int birthyear;
+        static int birthyear;
+        /// <summary>
+        /// Счётчик кол-ва мальчиков
+        /// </summary>
+        static int countmale;
+        /// <summary>
+        /// Счётчик кол-ва девочек
+        /// </summary>
+        static int countfemale;
 
+        /// <summary>
+        /// Свойства полей
+        /// </summary>
         public string Name
         {
             get { return name; }
@@ -39,28 +58,51 @@ namespace Theme15Pr1
             get { return birthyear; }
             set { birthyear = value; }
         }
-        public MyClass(string name, string gender, int birthyear)
+
+        public static int Countmale { get => countmale; set => countmale = value; }
+        public static int Countfemale { get => countfemale; set => countfemale = value; }
+
+        /// <summary>
+        /// Статический конструктор, инициализирующий два поля нулями
+        /// </summary>
+        static MyClass()
         {
-            this.name = name;
-            this.gender = gender;
-            this.birthyear = birthyear;
+            countmale = 0;
+            countfemale = 0;
         }
-        public void Count(MyClass[]pupil)
+        public MyClass() { }
+        /// <summary>
+        /// Конструктор с параметрчми
+        /// </summary>
+        /// <param name="surname"></param>
+        /// <param name="name"></param>
+        /// <param name="patronymic"></param>
+        /// <param name="gender"></param>
+        /// <param name="birthyear"></param>
+        public MyClass(string surname, string name, string patronymic, string gender, int birthyear)
         {
-            int countmale = 0;
-            int countfemale = 0;
-            foreach (var p in pupil)
+            this.surname = surname;
+            this.Name = name;
+            this.Patronymic = patronymic;
+            this.Gender = gender;
+            this.Birthyear = birthyear;
+            if (gender == "м")
             {
-                if(p.Gender == "м")
-                {
-                    countmale++;
-                }    
-                else if (p.Gender == "ж")
-                {
-                    countfemale++;
-                }
+                countmale++;
             }
-            
+            else if (gender == "ж")
+            {
+                countfemale++;
+            }
+
         }
+        /// <summary>
+        /// Статический метод вывода 
+        /// </summary>
+         static public void Print()
+        {
+            Console.WriteLine($"Фамилия - {Surname} \nПол - {Gender}\nГод рождения - {birthyear}\nКол-во мальчиков - {countmale}\nКол-во девочк - {countfemale}");
+        }
+       
     }
 }
