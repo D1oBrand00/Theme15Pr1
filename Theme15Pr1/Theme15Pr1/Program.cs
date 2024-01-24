@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +11,8 @@ namespace Theme15Pr1
         static void Main(string[] args)
         {
             int n = 3;
-            MyClass[] pupil = new MyClass[n];
-            for (int i = 0; i < pupil.Length; i++)
+            Schoolboy[] students = new Schoolboy[n];
+            for (int i = 0; i < students.Length; i++)
             {
                 Console.Write("Ввелие фамилию школьника:");
                 string surname = Console.ReadLine();
@@ -24,10 +24,12 @@ namespace Theme15Pr1
                 string gender = Console.ReadLine();
                 Console.Write("Введите год рождения школьника:");
                 int birthyear = int.Parse(Console.ReadLine());
-                pupil[i] = new MyClass(surname,name, patronymic, gender, birthyear);
+                students[i] = new Schoolboy(surname, name, patronymic, gender, birthyear);
+                Console.WriteLine();
 
             }
-           
+            
+
             Console.ReadKey();
         }
     }
