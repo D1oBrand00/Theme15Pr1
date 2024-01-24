@@ -62,7 +62,7 @@ namespace Theme15Pr1
         public string Gender
         {
             get { return gender; }
-            set { gender = (value == "м" || value == "ж") ? value : "Такого пола нет"; }
+            set { gender = (value == "м" || value == "М"|| value == "ж"|| value == "Ж") ? value : "Такого пола нет"; }
         }
         public int Birthyear
         {
@@ -100,11 +100,11 @@ namespace Theme15Pr1
             this.Patronymic = patronymic;
             this.Gender = gender;
             this.Birthyear = birthyear;
-            if (gender == "м")
+            if (gender == "м" || gender == "М")
             {
                 countmale++;
             }
-            else if (gender == "ж")
+            else if (gender == "ж"|| gender == "Ж")
             {
                 countfemale++;
             }
@@ -115,7 +115,7 @@ namespace Theme15Pr1
         /// </summary>
         public void Print()
         {
-            Console.WriteLine($"Фамилия - {Surname} \nПол - {Gender}\nГод рождения - {birthyear}\nКол-во мальчиков - {countmale}\nКол-во девочк - {countfemale}");
+            Console.WriteLine($"Фамилия - {Surname}\nИмя - {Name}\nОтчество - {Patronymic}\nПол - {Gender}\nГод рождения - {birthyear}");
         }
 
     }
