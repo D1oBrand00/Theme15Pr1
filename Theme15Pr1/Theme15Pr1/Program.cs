@@ -28,6 +28,23 @@ namespace Theme15Pr1
                 Console.WriteLine();
 
             }
+            WriteLine("Мальчики: \n");
+                foreach (var schoolboy in students)
+                {
+                    if (schoolboy.Gender == "м" || schoolboy.Gender == "М")
+                    {
+                        schoolboy.Print();
+                    }
+                }
+                WriteLine("Девочки: \n");
+                foreach (var schoolboy in students)
+                {                    
+                    if (schoolboy.Gender == "ж" || schoolboy.Gender == "Ж")
+                    {
+                        schoolboy.Print();
+                    }
+                }
+            WriteLine($"Кол-во мальчиков - {Schoolboy.Countmale}\nКол-во девочек - {Countfemale}");
             
 
             Console.ReadKey();
