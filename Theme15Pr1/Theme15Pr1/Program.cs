@@ -14,38 +14,40 @@ namespace Theme15Pr1
             Schoolboy[] students = new Schoolboy[n];
             for (int i = 0; i < students.Length; i++)
             {
-                Console.Write("Ввелие фамилию школьника:");
+                Console.Write("Введите фамилию: ");
                 string surname = Console.ReadLine();
-                Console.Write("Ввелие имя школьника:");
+                Console.Write("Ввелие имя: ");
                 string name = Console.ReadLine();
-                Console.Write("Ввелие отчество школьника:");
+                Console.Write("Ввелие отчество: ");
                 string patronymic = Console.ReadLine();
-                Console.Write("Введите пол школьника:");
+                Console.Write("Введите пол: ");
                 string gender = Console.ReadLine();
-                Console.Write("Введите год рождения школьника:");
+                Console.Write("Введите год рождения: ");
                 int birthyear = int.Parse(Console.ReadLine());
                 students[i] = new Schoolboy(surname, name, patronymic, gender, birthyear);
                 Console.WriteLine();
 
             }
-            WriteLine("Мальчики: \n");
-                foreach (var schoolboy in students)
+            Console.WriteLine("Мальчики: \n");
+            foreach (var schoolboy in students)
+            {
+                if (schoolboy.Gender == "м" || schoolboy.Gender == "М")
                 {
-                    if (schoolboy.Gender == "м" || schoolboy.Gender == "М")
-                    {
-                        schoolboy.Print();
-                    }
+                    schoolboy.Print();
+                    Console.WriteLine();
                 }
-                WriteLine("Девочки: \n");
-                foreach (var schoolboy in students)
-                {                    
-                    if (schoolboy.Gender == "ж" || schoolboy.Gender == "Ж")
-                    {
-                        schoolboy.Print();
-                    }
+            }
+            Console.WriteLine("Девочки: \n");
+            foreach (var schoolboy in students)
+            {
+                if (schoolboy.Gender == "ж" || schoolboy.Gender == "Ж")
+                {
+                    schoolboy.Print();
+                    Console.WriteLine();
                 }
-            WriteLine($"Кол-во мальчиков - {Schoolboy.Countmale}\nКол-во девочек - {Countfemale}");
-            
+            }
+            Console.WriteLine($"Кол-во мальчиков - {Schoolboy.Countmale}\nКол-во девочек - {Schoolboy.Countfemale}");
+
 
             Console.ReadKey();
         }
