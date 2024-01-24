@@ -1,36 +1,37 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Theme15Pr1
 {
     /// <summary>
     /// Нестатический класс, описывающий школьников
     /// </summary>
-    class MyClass
+    class Schoolboy
     {
         /// <summary>
         /// Поле фамилии школьника
         /// </summary>
-        static string surname;
+        string surname;
         /// <summary>
         /// Поле имени школьника
         /// </summary>
-        static string name;
+        string name;
         /// <summary>
         /// Поле отчества школьника
         /// </summary>
-        static string patronymic;
+        string patronymic;
         /// <summary>
         /// Поле пола школьника
         /// </summary>
-        static string gender;
+        string gender;
         /// <summary>
         /// Поле года рождения школьника
         /// </summary>
-        static int birthyear;
+        int birthyear;
         /// <summary>
         /// Счётчик кол-ва мальчиков
         /// </summary>
@@ -43,10 +44,20 @@ namespace Theme15Pr1
         /// <summary>
         /// Свойства полей
         /// </summary>
+        public string Surname
+        {
+            get { return surname; }
+            set { surname = value; }
+        }
         public string Name
         {
             get { return name; }
             set { name = value; }
+        }
+        public string Patronymic
+        {
+            get { return patronymic; }
+            set { patronymic = value; }
         }
         public string Gender
         {
@@ -65,12 +76,15 @@ namespace Theme15Pr1
         /// <summary>
         /// Статический конструктор, инициализирующий два поля нулями
         /// </summary>
-        static MyClass()
+        static Schoolboy()
         {
             countmale = 0;
             countfemale = 0;
         }
-        public MyClass() { }
+        /// <summary>
+        /// Конструктор без параметров
+        /// </summary>
+        public Schoolboy() { }
         /// <summary>
         /// Конструктор с параметрчми
         /// </summary>
@@ -79,9 +93,9 @@ namespace Theme15Pr1
         /// <param name="patronymic"></param>
         /// <param name="gender"></param>
         /// <param name="birthyear"></param>
-        public MyClass(string surname, string name, string patronymic, string gender, int birthyear)
+        public Schoolboy(string surname, string name, string patronymic, string gender, int birthyear)
         {
-            this.surname = surname;
+            this.Surname = surname;
             this.Name = name;
             this.Patronymic = patronymic;
             this.Gender = gender;
@@ -99,10 +113,14 @@ namespace Theme15Pr1
         /// <summary>
         /// Статический метод вывода 
         /// </summary>
-         static public void Print()
+        public void Print()
         {
             Console.WriteLine($"Фамилия - {Surname} \nПол - {Gender}\nГод рождения - {birthyear}\nКол-во мальчиков - {countmale}\nКол-во девочк - {countfemale}");
         }
-       
+
     }
+
+
+
+
 }
