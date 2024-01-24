@@ -62,7 +62,7 @@ namespace Theme15Pr1
         public string Gender
         {
             get { return gender; }
-            set { gender = (value == "м" || value == "М"|| value == "ж"|| value == "Ж") ? value : "Такого пола нет"; }
+            set { gender = (value == "м" || value == "М" || value == "ж" || value == "Ж") ? value : "Такого пола нет"; }
         }
         public int Birthyear
         {
@@ -104,14 +104,14 @@ namespace Theme15Pr1
             {
                 countmale++;
             }
-            else if (gender == "ж"|| gender == "Ж")
+            else if (gender == "ж" || gender == "Ж")
             {
                 countfemale++;
             }
 
         }
         /// <summary>
-        /// Статический метод вывода 
+        /// Метод вывода информации о школьнике
         /// </summary>
         public void Print()
         {
